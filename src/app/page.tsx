@@ -24,6 +24,7 @@ const Page: React.FC = () => {
           throw new Error("データの取得に失敗しました");
         }
         const postResponse: PostApiResponse[] = await response.json();
+        console.log("Fetched posts:", postResponse);
         setPosts(
           postResponse.map((rawPost) => ({
             id: rawPost.id,
@@ -64,19 +65,22 @@ const Page: React.FC = () => {
   }
 
   return (
-    <main>
-      <div className="text-2xl font-bold">投稿記事一覧</div>
-      <div className="mb-1 flex justify-end">
-        <Link href="/admin/posts" className="text-blue-500 underline">
-          管理者機能
-        </Link>
-      </div>
-      <div className="space-y-3">
-        {posts.map((post) => (
-          <PostSummary key={post.id} post={post} />
-        ))}
-      </div>
-    </main>
+    console.log("Rendering posts:", posts),
+    (
+      <main>
+        <div className="text-2xl font-bold">投稿記事一覧</div>
+        <div className="mb-1 flex justify-end">
+          <Link href="/admin/posts" className="text-blue-500 underline">
+            管理者機能
+          </Link>
+        </div>
+        <div className="space-y-3">
+          {posts.map((post) => (
+            <PostSummary key={post.id} post={post} />
+          ))}
+        </div>
+      </main>
+    )
   );
 };
 

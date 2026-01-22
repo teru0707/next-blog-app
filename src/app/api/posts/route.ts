@@ -4,28 +4,7 @@ import { Post } from "@/generated/prisma/client";
 
 export const GET = async (req: NextRequest) => {
   try {
-    // const posts: Post[] = await prisma.post.findMany({
-    //   orderBy: {
-    //     createdAt: "desc",
-    //   },
-    // });
-    const posts = await prisma.post.findMany({
-      select: {
-        id: true,
-        title: true,
-        content: true,
-        createdAt: true,
-        categories: {
-          select: {
-            category: {
-              select: {
-                id: true,
-                name: true,
-              },
-            },
-          },
-        },
-      },
+    const posts: Post[] = await prisma.post.findMany({
       orderBy: {
         createdAt: "desc",
       },

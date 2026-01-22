@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { NextResponse, NextRequest } from "next/server";
-import type { Category } from "@/generated/prisma/client";
+import { Category } from "@/generated/prisma/client";
 
 type RequestBody = {
   name: string;
