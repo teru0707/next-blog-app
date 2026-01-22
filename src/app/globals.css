@@ -1,1 +1,17 @@
+/* src/app/globals.css */
 @import "tailwindcss";
+
+@layer base {
+  body {
+    @apply min-h-screen bg-linear-to-br from-slate-50 to-indigo-100 text-slate-800;
+    /* 背景に薄いドットパターンを追加 */
+    background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply rounded-2xl border border-white/20 bg-white/80 shadow-xl backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl;
+  }
+}
